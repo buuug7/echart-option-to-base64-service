@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const option = {
+        color: [
+          "#4371FB",
+          "#FF4255",
+          "#464D5D",
+          "#37DFFF",
+          "#FFAC42",
+          "#8443fb",
+          "#ff42b6",
+          "#4e6db4",
+          "#248fa3",
+          "#ac6e1e",
+        ],
+        title: {
+          show: false,
+        },
+        legend: {
+          textStyle: {
+            color: "#353535",
+          },
+        },
+        tooltip: {
+          backgroundColor: "rgba(76, 74, 175, 0.8)",
+          textStyle: {
+            color: "#fff",
+            fontSize: 12,
+          },
+          trigger: "axis",
+        },
+        xAxis: {
+          type: "category",
+          axisLine: {
+            lineStyle: {
+              color: "#EFF1FA",
+            },
+          },
+          axisTick: {
+            show: false,
+            lineStyle: {
+              color: "#8C8C8C",
+            },
+          },
+          axisLabel: {
+            color: "#919198",
+          },
+          splitLine: {
+            lineStyle: {
+              color: "#EFF1FA",
+            },
+          },
+          nameTextStyle: {
+            color: "#919198",
+          },
+          data: [
+            "00:00",
+            "01:00",
+            "02:00",
+            "03:00",
+            "04:00",
+            "05:00",
+            "06:00",
+            "07:00",
+            "08:00",
+            "09:00",
+            "10:00",
+            "11:00",
+            "12:00",
+            "13:00",
+            "14:00",
+            "15:00",
+            "16:00",
+            "17:00",
+            "18:00",
+            "19:00",
+            "20:00",
+            "21:00",
+            "22:00",
+            "23:00",
+          ],
+        },
+        yAxis: {
+          type: "value",
+          axisLine: {
+            show: false,
+            lineStyle: {
+              color: "#EFF1FA",
+            },
+          },
+          axisTick: {
+            show: false,
+            lineStyle: {
+              color: "#8C8C8C",
+            },
+          },
+          axisLabel: {
+            color: "#919198",
+          },
+          splitLine: {
+            lineStyle: {
+              color: "#EFF1FA",
+            },
+          },
+          nameTextStyle: {
+            color: "#919198",
+          },
+        },
+        series: [
+          {
+            type: "bar",
+            name: "日前中标电量",
+            data: [
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+              "20.000",
+            ],
+          },
+          {
+            type: "line",
+            name: "日前报价",
+            data: [
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+              "0.000",
+            ],
+          },
+          {
+            type: "line",
+            name: "日前出清电价",
+            data: [
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+              "4.000",
+            ],
+          },
+        ],
+      };
+      fetch("http://localhost:3000/echarts-option-to-base64", {
+        method: "post",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify({
+          width: 800,
+          height: 400,
+          option: option,
+        }),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          console.log(json);
+          const img = document.createElement("img");
+          img.src = json.base64;
+          document.body.appendChild(img);
+        });
+    </script>
+  </body>
+</html>
