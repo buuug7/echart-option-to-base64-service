@@ -1,6 +1,6 @@
 ## echart option to base64 service
 
-give [echart](https://github.com/apache/incubator-echarts) option and return the base64 with png format.
+give [echart](https://github.com/apache/incubator-echarts) option and return the base64 with png format with node.
 
 ## usage
 
